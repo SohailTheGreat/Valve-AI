@@ -29,9 +29,11 @@ small{color:#aaa}
     <label for="prompt"><b>Describe your image</b></label>
     <p><textarea id="prompt" placeholder="A cinematic futuristic city at sunset, ultra detailed..."></textarea></p>
     <button class="primary" id="generate">Generate Image</button>
+    <button class="primary" id="generateVideo">Generate Video</button>
     <button class="secondary" id="connect">Connect Pollinations</button>
     <p id="status">Connect your account before generating.</p>
     <img id="result" alt="Generated image" hidden>
+    <video id="videoResult" controls playsinline style="width:100%;margin-top:15px" hidden></video>
     <p><a id="download" hidden style="color:#c5b5ff">Download image</a></p>
     <small>Generation may use your account's available credits.</small>
   </section>
