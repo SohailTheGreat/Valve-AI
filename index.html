@@ -162,6 +162,49 @@ async function generate(){
 }
 document.getElementById("connect").addEventListener("click",connect);
 document.getElementById("generate").addEventListener("click",generate);
+  async function generateVideo(){
+  const prompt=document.getElementById("prompt").value.trim();
+  const token=sessionStorage.getItem("valve_access_token");
+  const button=document.getElementById("generateVideo");
+  const video=document.getElementById("videoResult");
+
+  if(!prompt){
+    statusBox.textContent="Please enter a video prompt first.";
+    return;
+  }
+  if(!token){
+    statusBox.textContent="Connect Pollinations first.";
+    return;
+  }
+
+  button.disabled=true;
+  video.hidden=true;
+  statusBox.textContent="Generating video... Please wait.";
+
+  try{
+    const url="https://gen.pollinations.ai/video/"
+      +encodeURIComponent(prompt)
+      +"?model=google%2Fveo-3.1-fast";
+
+    const response=await fetch(url,{
+      headers:{Authorization:"Bearer "+token}
+    });
+
+    if(!response.ok){
+      throw new Error("Video failed ("+response.status+"). Check model access and credits.");
+    }
+
+    const blob=await response.blob();
+    const videoURL=URL.createObjectURL(blob);
+    video.src=videoURL;
+    video.hidden=false;
+    statusBox.textContent="Video generated successfully!";
+  }catch(error){
+    statusBox.textContent="Error: "+error.message;
+  }finally{
+    button.disabled=false;
+  }
+  }
 handleCallback();
 </script>
 </body>
