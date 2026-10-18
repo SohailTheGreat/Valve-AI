@@ -142,8 +142,9 @@ async function generate(){
       headers:{Authorization:"Bearer "+token}
     });
     if(!response.ok){
-      throw new Error("Generation failed ("+response.status+"). Check account credits and permissions.");
-    }
+  const details=await response.text();
+  throw new Error("Video failed ("+response.status+"): "+details.slice(0,300));
+}
     const blob=await response.blob();
     const imageURL=URL.createObjectURL(blob);
     const img=document.getElementById("result");
