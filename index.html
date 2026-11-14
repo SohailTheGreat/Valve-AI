@@ -7,19 +7,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valve AI — Image Generator</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b0b12;color:#f5f5ff;font-family:Arial,sans-serif;padding:24px}
-main{max-width:680px;margin:35px auto}
-h1{font-size:36px;margin-bottom:8px}
-p{color:#b9b9ca;line-height:1.5}
-.card{background:#171722;border:1px solid #303044;border-radius:18px;padding:22px}
-textarea{width:100%;min-height:110px;resize:vertical;background:#0c0c14;color:white;border:1px solid #39394d;border-radius:12px;padding:14px;font-size:16px}
-button{border:0;border-radius:10px;padding:13px 17px;font-size:15px;font-weight:bold;cursor:pointer;margin:8px 5px 8px 0}
-.primary{background:#9b7bff;color:#100d1c}
-.secondary{background:#303044;color:white}
-#status{white-space:pre-wrap;font-size:14px}
-img{width:100%;border-radius:12px;margin-top:15px}
-small{color:#aaa}
+
+/* VALVE AI PREMIUM DESIGN */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, #29204b 0%, transparent 48%),
+    #090910;
+  color: #f7f5ff;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 42px 20px;
+}
+
+h1 {
+  font-size: clamp(34px, 7vw, 58px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #aaa8bd;
+  line-height: 1.7;
+}
+
+.card {
+  background: linear-gradient(145deg, #1d1b2c, #11111b);
+  border: 1px solid #39334f;
+  border-radius: 24px;
+  padding: 28px;
+  margin-top: 30px;
+  box-shadow: 0 18px 55px #0008;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 145px;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #45405c;
+  background: #0c0c15;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px #a78bfa25;
+}
+
+button {
+  border: 0;
+  border-radius: 13px;
+  padding: 15px 23px;
+  margin: 12px 8px 4px 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+.primary {
+  background: linear-gradient(120deg, #a78bfa, #7654ed);
+  color: #100d20;
+}
+
+.secondary {
+  background: #302b43;
+  color: white;
+  border: 1px solid #49415f;
+}
+
+#status {
+  color: #c4b5fd;
+  margin-top: 20px;
+}
+
+img, video {
+  max-width: 100%;
+  border-radius: 16px;
+  margin-top: 18px;
+}
+
+small {
+  color: #9995ad;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 28px 16px;
+  }
+
+  .card {
+    padding: 21px;
+    border-radius: 21px;
+  }
+
+  button {
+    width: 100%;
+    margin: 9px 0;
+  }
+}
+  
 </style>
 </head>
 <body>
